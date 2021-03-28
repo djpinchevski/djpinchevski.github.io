@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Setting Border inside DIV Element</title>
+<style>
+    .box {
+        width: 180px;
+        height: 180px;
+        background: black;
+        margin: 20px 50px;
+    }
+    .circle {
+        border-radius: 50%;
+    }
+    .inner-border {
+        border: 20px solid black;
+        box-shadow: inset 0px 0px 0px 10px red;
+        box-sizing: border-box; /* Include padding and border in element's width and height */
+    }
+    /* CSS3 solution only for rectangular shape */
+    .inner-outline {
+        outline: 10px solid red;
+        outline-offset: -30px;
+    }
+</style>
+</head> 
+<body>
+    <h2>Border inside Rectangular and Circular Shape</h2>
+    <div class="box circle inner-border"></div>
+    <div class="box inner-border"></div>
+    <hr>
+    <h2>Outline Inside Rectangular Shape</h2>
+    <div class="box inner-outline"></div>
+</body>
+</html>

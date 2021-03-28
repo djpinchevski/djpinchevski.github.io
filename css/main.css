@@ -1,0 +1,33 @@
+body {
+  background-color: white;
+  color: black;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1 {
+  font-size: 70px;
+  font-weight: 700;
+}
+
+#what_we_do {
+  min-height: 100vh;
+  background: url("../assets/main-bg.png") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+}
+
+#what_we_do h1 {
+  padding-top: 27vh;
+}
+
+#what_we_do p {
+  width: 56vw;
+  margin: auto;
+  font-size: 25px;
+  font-weight: 400;
+  text-align: left;
+  line-height: 42px;
+  padding-top: 5vh;
+}
+
