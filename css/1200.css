@@ -7,6 +7,7 @@
     line-height: 38px;
     width: 55vw;
     text-align: justify;
+    text-justify: inter-character;
   }
 
   #what_we_do h1 {
