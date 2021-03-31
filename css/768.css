@@ -3,13 +3,13 @@
     font-size: 7px;
   }
 
+  h1 {
+	  padding-top: 15vh;
+	}
+
   .general_text {
     line-height: 30px;
   }
-
-  #what_we_do h1 {
-	  padding-top: 19vh;
-	}
 
 	.helpful_content p {
 	  font-size: 2.92rem;

@@ -23,6 +23,7 @@ section {
 
 h1 {
   font-size: 7rem;
+  padding-top: 28vh;
 }
 
 h2 {
@@ -54,10 +55,6 @@ img {
   background: url("../assets/main-bg.png");
   background-size: cover;
   color: #fff;
-}
-
-#what_we_do h1 {
-  padding-top: 28vh;
 }
 
 #how_can_we_help h2 {

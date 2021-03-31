@@ -3,16 +3,16 @@
     font-size: 9px;
   }
 
+  h1 {
+	  padding-top: 25vh;
+	}
+
   .general_text {
     line-height: 38px;
     width: 55vw;
     text-align: justify;
     text-justify: inter-character;
   }
-
-  #what_we_do h1 {
-	  padding-top: 25vh;
-	}
 
 	#how_can_we_help h2 {
 	  padding-top: 7vh;
