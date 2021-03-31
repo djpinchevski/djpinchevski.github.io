@@ -6,6 +6,7 @@
   .general_text {
     line-height: 38px;
     width: 55vw;
+    text-align: justify;
   }
 
   #what_we_do h1 {
