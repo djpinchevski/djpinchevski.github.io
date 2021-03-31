@@ -1,0 +1,21 @@
+@media (max-width: 576px) {
+  html {
+    font-size: 6px;
+  }
+
+  .general_text {
+    line-height: 26px;
+  }
+
+  #what_we_do h1 {
+	  padding-top: 16vh;
+	}
+
+	.helpful_content p {
+	  font-size: 3.14rem;
+	}
+
+	.client_content p {
+		width: 65%;
+	}
+}
