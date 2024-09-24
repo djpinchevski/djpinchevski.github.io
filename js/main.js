@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let keywordIndex = 0;
     const keywordInput = document.getElementById('keywordInput');
     const poemContainer = document.getElementById('poemContainer');
+    const skipToEnd = document.getElementById('skipToEnd');
 
     keywordInput.addEventListener('input', () => {
         const keyword = keywordInput.value.trim().toUpperCase();
@@ -40,10 +41,40 @@ document.addEventListener('DOMContentLoaded', () => {
                 const breakElement = document.createElement('br');
                 poemContainer.appendChild(breakElement);
             }
+            if (stanza.keyword === 'DREAM') {
+                keywordInput.disabled = true;
+                keywordInput.style.display = 'none';
+                document.getElementById('skipToEnd').disabled = true;
+                document.getElementById('skipToEnd').style.display = 'none';
+                document.getElementById('wordleArchiveLink').style.display = 'none';
+                document.getElementById('updateMsg').style.display = 'none';
+            }
             keywordInput.value = ''; 
             document.getElementById('wordleArchiveLink').href = `https://wordlearchive.com/${stanzas[keywordIndex].id}`;
             document.getElementById('updateMsg').style.fontStyle = 'italic';
             document.getElementById('updateMsg').style.display = 'block';
         }
+    });
+
+    skipToEnd.addEventListener('click', () => {
+        stanzas.forEach((stanza, index) => {
+            if (index >= keywordIndex) {
+                const stanzaElement = document.createElement('p');
+                stanzaElement.textContent = stanza.text;
+                poemContainer.appendChild(stanzaElement);
+                // if the keyword is TRUST or LOVER, add a paragraph break
+                if (stanza.keyword === 'TRUST' || stanza.keyword === 'LOVER') {
+                    const breakElement = document.createElement('br');
+                    poemContainer.appendChild(breakElement);
+                }
+                keywordIndex++;
+            }
+        });
+        keywordInput.disabled = true;
+        keywordInput.style.display = 'none';
+        document.getElementById('skipToEnd').disabled = true;
+        document.getElementById('skipToEnd').style.display = 'none';
+        document.getElementById('wordleArchiveLink').style.display = 'none';
+        document.getElementById('updateMsg').style.display = 'none';
     });
 });
