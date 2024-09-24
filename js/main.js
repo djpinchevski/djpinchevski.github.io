@@ -1,23 +1,49 @@
-gsap.from("#how_can_we_help", {
-  scrollTrigger: "#how_can_we_help .helpful_items", 
-  x: window.innerWidth,
-  duration: 0.75
-});
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('updateMsg').style.display = 'none';
+    const stanzas = [
+        { id: '989', keyword: 'FLAME', text: 'Your flame brightens the path I walk,' },
+        { id: '767', keyword: 'HEART', text: 'Your heart, a beat that guides.' },
+        { id: '440', keyword: 'CHARM', text: 'In your charm,' },
+        { id: '16', keyword: 'QUIET', text: 'I find the quiet strength' },
+        { id: '596', keyword: 'DANCE', text: 'To dance,' },
+        { id: '1174', keyword: 'WIDEN', text: 'To widen my world,' },
+        { id: '880', keyword: 'TRUST', text: 'To trust.' },
+        { id: '808', keyword: 'BIRCH', text: 'Through the winding roads towards birch,' },
+        { id: '793', keyword: 'BEACH', text: 'And beach,' },
+        { id: '319', keyword: 'TRAIN', text: 'Like a train, we travel onward—' },
+        { id: '1133', keyword: 'AWASH', text: 'A journey awash' },
+        { id: '262', keyword: 'SWEET', text: 'With sweet moments,' },
+        { id: '781', keyword: 'LOVER', text: 'Where every step whispers lover.' },
+        { id: '631', keyword: 'BIRTH', text: 'In the light of this special birthday, I celebrate you.' },
+        { id: '918', keyword: 'GRACE', text: 'Your grace,' },
+        { id: '842', keyword: 'TRUTH', text: 'Your truth,' },
+        { id: '526', keyword: 'HAPPY', text: 'Each happy memory we create,' },
+        { id: '977', keyword: 'BUILD', text: 'A reminder of what we build together:' },
+        { id: '504', keyword: 'DREAM', text: 'A dream shared.' }
+    ];
 
-gsap.from("#what_do_our_clients_say", {
-  scrollTrigger: "#what_do_our_clients_say .client_container", 
-  x: window.innerWidth * -1,
-  duration: 0.75
-});
+    let keywordIndex = 0;
+    const keywordInput = document.getElementById('keywordInput');
+    const poemContainer = document.getElementById('poemContainer');
 
-gsap.from("#our_story", {
-  scrollTrigger: "#our_story p", 
-  x: window.innerWidth,
-  duration: 0.75
-});
+    keywordInput.addEventListener('input', () => {
+        const keyword = keywordInput.value.trim().toUpperCase();
+        const stanza = stanzas.find(s => s.keyword === keyword);
 
-gsap.from("#meet_the_team", {
-  scrollTrigger: "#meet_the_team .grid", 
-  x: window.innerWidth * -1,
-  duration: 0.75
+        if (stanza) {
+            keywordIndex++;
+            const stanzaElement = document.createElement('p');
+            stanzaElement.textContent = stanza.text;
+            poemContainer.appendChild(stanzaElement);
+            // if the keyword is TRUST or LOVER, add a paragraph break
+            if (stanza.keyword === 'TRUST' || stanza.keyword === 'LOVER') {
+                const breakElement = document.createElement('br');
+                poemContainer.appendChild(breakElement);
+            }
+            keywordInput.value = ''; 
+            document.getElementById('wordleArchiveLink').href = `https://wordlearchive.com/${stanzas[keywordIndex].id}`;
+            document.getElementById('updateMsg').style.fontStyle = 'italic';
+            document.getElementById('updateMsg').style.display = 'block';
+        }
+    });
 });
