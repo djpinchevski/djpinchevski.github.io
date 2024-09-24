@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const keywordInput = document.getElementById('keywordInput');
     const poemContainer = document.getElementById('poemContainer');
     const skipToEnd = document.getElementById('skipToEnd');
+    const skipToNext = document.getElementById('skipToNext');
 
     keywordInput.addEventListener('input', () => {
         const keyword = keywordInput.value.trim().toUpperCase();
@@ -46,11 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 keywordInput.style.display = 'none';
                 document.getElementById('skipToEnd').disabled = true;
                 document.getElementById('skipToEnd').style.display = 'none';
+                document.getElementById('skipToNext').disabled = true;
+                document.getElementById('skipToNext').style.display = 'none';
                 document.getElementById('wordleArchiveLink').style.display = 'none';
                 document.getElementById('updateMsg').style.display = 'none';
             }
             keywordInput.value = ''; 
-            document.getElementById('wordleArchiveLink').href = `https://wordlearchive.com/${stanzas[keywordIndex].id}`;
+            if (stanzas[keywordIndex].id) { document.getElementById('wordleArchiveLink').href = `https://wordlearchive.com/${stanzas[keywordIndex].id}`; }
             document.getElementById('updateMsg').style.fontStyle = 'italic';
             document.getElementById('updateMsg').style.display = 'block';
         }
@@ -74,7 +77,49 @@ document.addEventListener('DOMContentLoaded', () => {
         keywordInput.style.display = 'none';
         document.getElementById('skipToEnd').disabled = true;
         document.getElementById('skipToEnd').style.display = 'none';
+        document.getElementById('skipToNext').disabled = true;
+        document.getElementById('skipToNext').style.display = 'none';
         document.getElementById('wordleArchiveLink').style.display = 'none';
         document.getElementById('updateMsg').style.display = 'none';
     });
+
+    skipToNext.addEventListener('click', () => {
+        const stanza = stanzas[keywordIndex];
+        keywordIndex++;
+        if (keywordIndex >= stanzas.length) {
+            keywordInput.disabled = true;
+            keywordInput.style.display = 'none';
+            document.getElementById('skipToEnd').disabled = true;
+            document.getElementById('skipToEnd').style.display = 'none';
+            document.getElementById('skipToNext').disabled = true;
+            document.getElementById('skipToNext').style.display = 'none';
+            document.getElementById('wordleArchiveLink').style.display = 'none';
+            document.getElementById('updateMsg').style.display = 'none';
+        }
+        const stanzaElement = document.createElement('p');
+        stanzaElement.textContent = stanza.text;
+        poemContainer.appendChild(stanzaElement);
+        // if the keyword is TRUST or LOVER, add a paragraph break
+        if (stanza.keyword === 'TRUST' || stanza.keyword === 'LOVER') {
+            const breakElement = document.createElement('br');
+            poemContainer.appendChild(breakElement);
+        }
+        keywordInput.value = ''; 
+        if (keywordIndex < stanzas.length) { document.getElementById('wordleArchiveLink').href = `https://wordlearchive.com/${stanzas[keywordIndex].id}`; }
+        document.getElementById('updateMsg').style.fontStyle = 'italic';
+        document.getElementById('updateMsg').style.display = 'block';
+        if (stanza.keyword === 'DREAM') {
+            console.log('Arrived at Next button dream')
+            keywordInput.disabled = true;
+            keywordInput.style.display = 'none';
+            document.getElementById('skipToEnd').disabled = true;
+            document.getElementById('skipToEnd').style.display = 'none';
+            document.getElementById('skipToNext').disabled = true;
+            document.getElementById('skipToNext').style.display = 'none';
+            document.getElementById('wordleArchiveLink').style.display = 'none';
+            document.getElementById('updateMsg').style.display = 'none';
+        }
+    }); 
+
+
 });
