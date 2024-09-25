@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     keywordInput.addEventListener('input', () => {
         const keyword = keywordInput.value.trim().toUpperCase();
-        const stanza = stanzas.find(s => s.keyword === keyword);
+        const stanza = stanzas[keywordIndex].keyword === keyword ? stanzas[keywordIndex] : null;
 
         if (stanza) {
             keywordIndex++;
@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('skipToNext').style.display = 'none';
                 document.getElementById('wordleArchiveLink').style.display = 'none';
                 document.getElementById('updateMsg').style.display = 'none';
+                document.getElementById('instructions').style.display = 'none';
             }
             keywordInput.value = ''; 
             if (stanzas[keywordIndex].id) { document.getElementById('wordleArchiveLink').href = `https://wordlearchive.com/${stanzas[keywordIndex].id}`; }
@@ -81,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('skipToNext').style.display = 'none';
         document.getElementById('wordleArchiveLink').style.display = 'none';
         document.getElementById('updateMsg').style.display = 'none';
+        document.getElementById('instructions').style.display = 'none';
     });
 
     skipToNext.addEventListener('click', () => {
@@ -95,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('skipToNext').style.display = 'none';
             document.getElementById('wordleArchiveLink').style.display = 'none';
             document.getElementById('updateMsg').style.display = 'none';
+            document.getElementById('instructions').style.display = 'none';
         }
         const stanzaElement = document.createElement('p');
         stanzaElement.textContent = stanza.text;
@@ -118,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('skipToNext').style.display = 'none';
             document.getElementById('wordleArchiveLink').style.display = 'none';
             document.getElementById('updateMsg').style.display = 'none';
+            document.getElementById('instructions').style.display = 'none';
         }
     }); 
 
