@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: '918', keyword: 'GRACE', text: 'Your grace,' },
         { id: '842', keyword: 'TRUTH', text: 'Your truth,' },
         { id: '526', keyword: 'HAPPY', text: 'Each happy memory we create,' },
-        { id: '977', keyword: 'BUILD', text: 'A reminder of what we build together:' },
+        { id: '977', keyword: 'BUILD', text: 'A reminder of what we build together—' },
         { id: '504', keyword: 'DREAM', text: 'A dream shared.' }
     ];
 
