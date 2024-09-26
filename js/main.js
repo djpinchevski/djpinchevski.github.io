@@ -52,6 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('wordleArchiveLink').style.display = 'none';
                 document.getElementById('updateMsg').style.display = 'none';
                 document.getElementById('instructions').style.display = 'none';
+                document.getElementById('video').style.display = 'block';
+                
             }
             keywordInput.value = ''; 
             if (stanzas[keywordIndex].id) { document.getElementById('wordleArchiveLink').href = `https://wordlearchive.com/${stanzas[keywordIndex].id}`; }
@@ -83,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('wordleArchiveLink').style.display = 'none';
         document.getElementById('updateMsg').style.display = 'none';
         document.getElementById('instructions').style.display = 'none';
+        document.getElementById('video').style.display = 'block';
     });
 
     skipToNext.addEventListener('click', () => {
@@ -98,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('wordleArchiveLink').style.display = 'none';
             document.getElementById('updateMsg').style.display = 'none';
             document.getElementById('instructions').style.display = 'none';
+            document.getElementById('video').style.display = 'block';
         }
         const stanzaElement = document.createElement('p');
         stanzaElement.textContent = stanza.text;
@@ -122,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('wordleArchiveLink').style.display = 'none';
             document.getElementById('updateMsg').style.display = 'none';
             document.getElementById('instructions').style.display = 'none';
+            document.getElementById('video').style.display = 'block';
         }
     }); 
 
